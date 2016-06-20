@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <mysql>
+    	<dbhost>localhost</dbhost>
+        <dbuser>yuqing</dbuser>
+        <dbpasswd>cins_B511</dbpasswd>
+        <dbname>yuqing</dbname>
+	    <dbport>3306</dbport>
+    </mysql>
+    <mongodb>
+        <dbhost>10.161.13.92</dbhost>
+        <dbuser></dbuser>
+        <dbpasswd></dbpasswd>
+        <dbname>din_tian</dbname>
+        <dbport>27017</dbport>
+    </mongodb>
+    		
+</database>
