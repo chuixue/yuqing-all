@@ -20,13 +20,15 @@
 	//处理，也可使用switch	
 	if($key=="comment")
 	{
-		$id = $query->ID;	$id="cdqq-210491";
+		$id = $query->ID;	
+		//$id="cdqq-19579";
 		$sql="select * from emotion1 where eventid='$id' and 'emationword' <> ".'""'." limit 10";
 		//$sql="select * from emotion where 'emationword' <>\"\"";
 		//$sql="select * from exampaper where 1";
 		//echo $sql;//'emationword'
 		$sql="select emotionlabel,count(*) as count, group_concat(emotionword) as words from emotion1 where eventid = '$id' group by emotionlabel";
 		$temp=getJsonBySql($sql);
+		$rel = array("+"=>'s', "-"=>'p', "0"=>'o');
 		for($i=0; $i<count($temp); $i++)
                 {
 			$dic = array();
@@ -34,6 +36,7 @@
 			foreach($tp as $d)
 				if($d != "")$dic[$d] = isset($dic[$d]) ? $dic[$d]+=1 : 1;
 			$temp[$i]->words=$dic;
+			$temp[$i]->emotionlabel = $rel[$temp[$i]->emotionlabel] ? $rel[$temp[$i]->emotionlabel] : 's';
                 }
 		$data = $temp;
 	
